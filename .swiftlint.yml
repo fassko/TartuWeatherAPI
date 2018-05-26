@@ -1,0 +1,10 @@
+included:
+  - Sources
+excluded:
+  - Public
+  - Tests
+
+disabled_rules:
+  - trailing_whitespace
+
+reporter: "xcode"

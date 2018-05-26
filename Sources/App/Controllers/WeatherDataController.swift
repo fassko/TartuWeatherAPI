@@ -35,6 +35,7 @@ final class WeatherDataController {
         let htmlString = String(data: response.http.body.data!, encoding: .utf8)
         let doc = try SwiftSoup.parse(htmlString!)
         
+        // swiftlint:disable line_length
         temperature = try doc.select("body > table > tbody > tr > td > table > tbody > tr:nth-child(1) > td:nth-child(2)").text()
         humidity = try doc.select("body > table > tbody > tr > td > table > tbody > tr:nth-child(2) > td:nth-child(2)").text()
         airPressure = try doc.select("body > table > tbody > tr > td > table > tbody > tr:nth-child(3) > td:nth-child(2)").text()
@@ -45,11 +46,6 @@ final class WeatherDataController {
       } catch {
         print(error)
       }
-      
-      
-      
-      //        let smallImageURL = "http://meteo.physic.ut.ee/webcam/uus/pisike.jpg"
-      //        let largeImageURL = "http://meteo.physic.ut.ee/webcam/uus/suur.jpg"
       
       return WeatherData(temperature: temperature,
                          humidity: humidity,
