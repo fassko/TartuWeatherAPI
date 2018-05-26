@@ -56,23 +56,4 @@ final class WeatherDataController {
                          measuredTime: measuredTime)
     })
   }
-  
-  func liveImage(_ req: Request) throws -> Future<Response> {
-    
-    let parameters = try req.query.decode(LiveImageURLParameters.self)
-    let client = try req.make(Client.self)
-    
-    let url = { () -> String in
-      switch parameters.size {
-      case .large:
-        return "http://meteo.physic.ut.ee/webcam/uus/suur.jpg"
-      case .small:
-        return "http://meteo.physic.ut.ee/webcam/uus/pisike.jpg"
-      }
-    }()
-    
-    let response =  client.get(url)
-    
-    return response
-  }
 }
