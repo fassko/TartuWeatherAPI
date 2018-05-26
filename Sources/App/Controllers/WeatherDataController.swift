@@ -53,7 +53,10 @@ final class WeatherDataController {
                          wind: wind,
                          precipitation: precipitation,
                          irradiationFlux: irradiationFlux,
-                         measuredTime: measuredTime)
+                         measuredTime: measuredTime,
+                         smallImageURL: "https://tartuweather.vapor.cloud/liveImage/large.jpg",
+                         largeImageURL: "https://tartuweather.vapor.cloud/liveImage/small.jpg"
+        )
     })
   }
 }
