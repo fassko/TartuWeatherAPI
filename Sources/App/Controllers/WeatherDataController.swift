@@ -45,6 +45,7 @@ final class WeatherDataController {
         measuredTime = try doc.select("body > table > tbody > tr > td > table > tbody > tr:nth-child(7) > td:nth-child(2) > small").text()
       } catch {
         print(error)
+        throw Abort.init(HTTPResponseStatus.badRequest, reason: "Can't download data")
       }
       
       return WeatherData(temperature: temperature,

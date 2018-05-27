@@ -1,6 +1,10 @@
 import Vapor
 import HTTP
 
+struct Image: Content {
+  var image: Data
+}
+
 public func routes(_ router: Router) throws {
   
   let weatherDataController = WeatherDataController()
@@ -11,5 +15,5 @@ public func routes(_ router: Router) throws {
   router.get("/liveImage/small.jpg", use: liveImageController.small)
   
   let historyDataController = HistoryDataController()
-  router.get("/history", use: historyDataController.history)
+  router.get("/history", use: historyDataController.history)  
 }

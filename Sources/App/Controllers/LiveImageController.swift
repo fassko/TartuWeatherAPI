@@ -18,7 +18,16 @@ final class LiveImageController {
   }
   
   func liveImage(_ req: Request, _ url: String) throws -> Future<Response> {
-    let client = try req.make(Client.self)
+    
+    let client = try req.sharedContainer.client()
+    
     return client.get(url)
+    
+//    let client = try req.make(Client.self)
+//    let headers = HTTPHeaders.init([("Content-Type", "image/jpeg")])
+//    return client.get(url, headers: headers, beforeSend: { request in
+    
+//    })
+      //.get(url)
   }
 }
