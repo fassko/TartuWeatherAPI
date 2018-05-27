@@ -16,4 +16,9 @@ public func routes(_ router: Router) throws {
   
   let historyDataController = HistoryDataController()
   router.get("/history", use: historyDataController.history)
+  
+  
+  router.get("/img") { req in
+    return try req.sharedContainer.client().get("http://meteo.physic.ut.ee/webcam/uus/pisike.jpg")
+  }
 }
