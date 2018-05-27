@@ -18,6 +18,6 @@ final class LiveImageController {
   }
   
   func liveImage(_ req: Request, _ url: String) throws -> Future<Response> {
-    return try req.sharedContainer.client().get(url)
+    return try req.client().get(url)
   }
 }
